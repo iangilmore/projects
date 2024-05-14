@@ -1,0 +1,673 @@
+openapi: 3.0.3
+info:
+  title: Project API
+  version: 1.0.0
+  description: OpenAPI Schema for the Project project
+paths:
+  /:
+    get:
+      operationId: root_retrieve
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /languages/:
+    get:
+      operationId: languages_list
+      tags:
+      - languages
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Language'
+          description: ''
+    post:
+      operationId: languages_create
+      tags:
+      - languages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Language'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Language'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Language'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Language'
+          description: ''
+  /languages/{id}/:
+    get:
+      operationId: languages_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - languages
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Language'
+          description: ''
+    put:
+      operationId: languages_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - languages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Language'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Language'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Language'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Language'
+          description: ''
+    patch:
+      operationId: languages_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - languages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLanguage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLanguage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLanguage'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Language'
+          description: ''
+    delete:
+      operationId: languages_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - languages
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /projects/:
+    get:
+      operationId: projects_list
+      tags:
+      - projects
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+          description: ''
+    post:
+      operationId: projects_create
+      tags:
+      - projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+  /projects/{id}/:
+    get:
+      operationId: projects_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+    put:
+      operationId: projects_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+    patch:
+      operationId: projects_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProject'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProject'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProject'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+    delete:
+      operationId: projects_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /projects/{project_id}/languages/{language_id}:
+    post:
+      operationId: projects_languages_create
+      parameters:
+      - in: path
+        name: language_id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: project_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: projects_languages_destroy
+      parameters:
+      - in: path
+        name: language_id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: project_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /projects/{project_id}/links/:
+    get:
+      operationId: projects_links_list
+      parameters:
+      - in: path
+        name: project_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Link'
+          description: ''
+    post:
+      operationId: projects_links_create
+      parameters:
+      - in: path
+        name: project_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Link'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Link'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Link'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Link'
+          description: ''
+  /projects/{project_id}/links/{link_id}/:
+    get:
+      operationId: projects_links_retrieve
+      parameters:
+      - in: path
+        name: link_id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: project_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Link'
+          description: ''
+    put:
+      operationId: projects_links_update
+      parameters:
+      - in: path
+        name: link_id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: project_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Link'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Link'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Link'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Link'
+          description: ''
+    patch:
+      operationId: projects_links_partial_update
+      parameters:
+      - in: path
+        name: link_id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: project_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLink'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLink'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLink'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Link'
+          description: ''
+    delete:
+      operationId: projects_links_destroy
+      parameters:
+      - in: path
+        name: link_id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: project_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - projects
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    Language:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - id
+      - name
+    Link:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+        custom_type:
+          type: string
+          maxLength: 50
+        url:
+          type: string
+          format: uri
+          maxLength: 200
+        project:
+          type: integer
+          readOnly: true
+      required:
+      - id
+      - project
+      - type
+      - url
+    PatchedLanguage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+    PatchedLink:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+        custom_type:
+          type: string
+          maxLength: 50
+        url:
+          type: string
+          format: uri
+          maxLength: 200
+        project:
+          type: integer
+          readOnly: true
+    PatchedProject:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        languages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Language'
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        description:
+          type: string
+          maxLength: 250
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        languages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Language'
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        description:
+          type: string
+          maxLength: 250
+      required:
+      - description
+      - id
+      - languages
+      - name
+    TypeEnum:
+      enum:
+      - Live Demo
+      - Deployment
+      - Source Repository
+      - Frontend Source Repository
+      - Backend Source Repository
+      - Wireframes
+      - ERD
+      - Component Hierachy Diagram
+      - Custom
+      type: string
+      description: |-
+        * `Live Demo` - Live Demo
+        * `Deployment` - Deployment
+        * `Source Repository` - Source Repository
+        * `Frontend Source Repository` - Frontend Source Repository
+        * `Backend Source Repository` - Backend Source Repository
+        * `Wireframes` - Wireframes
+        * `ERD` - ERD
+        * `Component Hierachy Diagram` - Component Hierachy Diagram
+        * `Custom` - Custom
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

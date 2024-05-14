@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'drf_redesign',
     'rest_framework',
     'main_app',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 from django.core.management.commands.runserver import Command as runserver
 runserver.default_port = "8001"
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Project API',
+    'DESCRIPTION': 'OpenAPI Schema for the Project project',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
