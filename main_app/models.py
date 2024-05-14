@@ -1,19 +1,17 @@
 from django.db import models
 
+
+class Language(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def __str__(self):
+      return self.name
+
+
 class Project(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
-    # url = models.URLField()
-    # level = models.CharField(
-    #     max_length=1,
-    #     choices=[
-    #         ('B', 'Beginner'),
-    #         ('I', 'Intermediate'),
-    #         ('A', 'Advanced'),
-    #     ],
-    #     default='B',
-    # )
-    # years_experience = models.IntegerField()
+    languages = models.ManyToManyField(Language)
     
     def __str__(self):
       return self.name
