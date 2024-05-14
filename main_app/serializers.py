@@ -1,7 +1,13 @@
 from rest_framework import serializers
-from .models import Skill
+from .models import Project, Link
 
-class SkillSerializer(serializers.ModelSerializer):
+class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Skill
+        model = Project
         fields = '__all__'
+
+class LinkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Link
+        fields = '__all__'
+        read_only_fields = ['project',]

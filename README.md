@@ -1,2 +1,2 @@
-# Skill Tracker
-Keep an active inventory of your skills as you grow
+# Projects API
+Keep an active inventory of your projects as you grow in your field
