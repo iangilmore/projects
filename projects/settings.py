@@ -149,10 +149,11 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Project API',
-    'DESCRIPTION': 'OpenAPI Schema for the Project project',
+    'TITLE': 'Projects API',
+    'DESCRIPTION': 'OpenAPI Schema for the Projects project',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
+    'SERVERS': [{'url': 'http://127.0.0.1:8001/', 'description': 'Local'},],
     # OTHER SETTINGS
 }
 
