@@ -18,7 +18,7 @@ class LanguageList(generics.ListCreateAPIView):
 class LanguageDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Language.objects.all()
   serializer_class = LanguageSerializer
-  lookup_field = 'id'
+  lookup_field = 'language_id'
 
 class ProjectList(generics.ListCreateAPIView):
   queryset = Project.objects.all()
@@ -28,7 +28,11 @@ class ProjectList(generics.ListCreateAPIView):
 class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Project.objects.all()
   serializer_class = ProjectSerializer
-  lookup_field = 'id'
+  lookup_field = 'project_id'
+  
+  def get_queryset(self):
+    user = self.request.user
+    return Project.objects.filter(user=user)
   
   def retrieve(self, request, *args, **kwargs):
     instance = self.get_object()
